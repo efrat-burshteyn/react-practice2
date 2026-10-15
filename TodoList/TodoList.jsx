@@ -10,11 +10,16 @@ export default function TodoList() {
         'Master JavaScript',
     ]);
     const [addTask,setAddTask] = useState('');
+    const pushTask =(p)=>{
+      p.preventDefault();
+      setTodos([...todos,addTask])
+      setAddTask('');
+    }
 
     return (
     <div>
       <h1>Todo List</h1>
-        <form>
+      <form onSubmit={pushTask}>
       <input type='text' placeholder='enter a new task:'
       value={addTask}
       onChange={(n)=>setAddTask(n.target.value)}/>
