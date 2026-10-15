@@ -12,7 +12,10 @@ export default function TodoList() {
     const [addTask,setAddTask] = useState('');
     const pushTask =(p)=>{
       p.preventDefault();
-      setTodos([...todos,addTask])
+      const temp=addTask.trim();
+      if(temp!==''&& !todos.includes(temp)){
+        setTodos([...todos,temp])
+      }
       setAddTask('');
     }
 
